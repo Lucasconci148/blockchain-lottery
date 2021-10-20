@@ -1,0 +1,83 @@
+<div class="contract">
+    <p class="contract__text"> Ver el contrato 
+        <span class="contract__text--link" (click)="goToContract()"> Aqui! </span>
+    </p>
+</div>
+
+<div class="content">
+
+    <div class="hero">
+        <div class="hero__content">
+            
+            <div class="hero__card">
+                <div>
+                    <p class="hero__card__sub-title"> Gana en la Lotery Cripto</p>
+                    <p class="hero__card__title"> Compar tu ticket!</p>
+                    <p class="hero__card__content">
+                      Deberas conectar tu billetera metamask y participar, una vez se completen las plazas se sorteara automaticamente y 
+                      transferira los fondos a la billetera del ganador. Si el juego no se encuentra activo, 
+                      al recibir la primera apuesta comenzara, hasta completar las plazas.
+                    </p>
+
+                    <p class="hero__card__title"> Billetera </p>
+                    
+                    <button
+                        *ngIf="!account[0]"
+                        mat-raised-button color="accent" 
+                        (click)="connectWallet()" 
+                        style="width: 200px !important; margin-top: 20px;">
+                            Conectar Billetera
+                    </button>
+
+                    <p class="hero__wallet">{{ account[0] }}</p>
+
+                    <!-- <button 
+                        mat-raised-button color="accent" 
+                        (click)="disconnectWallet()" 
+                        style="width: 200px !important; margin-top: 20px;">
+                            Desconectar Billetera
+                    </button> -->
+
+                </div>
+                <img src="../assets/images/lot.png" class="rotate" style="height: 300px;">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="floating-card">
+        <div class="floating-card--space">
+            <p class="floating-card__title">Valor del ticket</p>
+            <p class="floating-card__sub-title">ETH {{ ticketValue }}</p>
+        </div>
+
+        <div class="floating-card--space">
+            <p class="floating-card__title">Premio</p>
+            <p class="floating-card__sub-title">ETH {{ totalPrice }}</p>
+        </div>
+
+        <div class="floating-card--space floating-card__btn">
+            <button 
+                *ngIf="showBtn"
+                mat-raised-button color="accent" 
+                (click)="playLotery()" 
+                style="width: 100px !important;">
+                Jugar
+            </button>
+            
+            <mat-spinner
+                *ngIf="!showBtn"
+                [diameter]="40"
+                [color]="'accent'"
+                [mode]="'indeterminate'">
+            </mat-spinner>
+        </div>
+    </div>
+
+    <!--COMO JUGAR-->
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 80px; ">
+        <!-- <p style="font-size: 40px; font-weight: 500;"> ¿COMO FUNCIONA?</p> -->
+    </div>
+
+</div>
+
